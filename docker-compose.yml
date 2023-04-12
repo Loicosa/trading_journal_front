@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  vue-app:
+    build: .
+    image: my-vue-app
+    container_name: my-vue-app-container
+    ports:
+      - '3001:3001'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - pathway
+      
+networks:
+  pathway:
+    external: true
